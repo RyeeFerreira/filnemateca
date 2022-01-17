@@ -1,8 +1,8 @@
 Instruções Gerais:
-    ☐ Crie uma pasta chamada services
-    ☐ Crie um arquivo FilmesServices.js na pasta services
+    ✔ Crie uma pasta chamada services @done(21-12-09 17:16)
+    ✔ Crie um arquivo FilmesServices.js na pasta services @done(21-12-09 17:16)
     ☐ No arquivo FilmesServices.js
-        - Importe o conteúdo do arquivo database/filmes.json para uma constante *filmes*
+        ✔ Importe o conteúdo do arquivo database/filmes.json para uma constante *filmes* @done(21-12-09 17:27)
         - Crie um objeto vazio armazenando-o numa constante chamada services
         - Exporte a constante services
 
