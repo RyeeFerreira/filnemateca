@@ -25,4 +25,21 @@ servidor.get("/filmes/:posicao", (req,res)=>{
 })
 
 
+
+
+
+servidor.get("/busca/:trecho", (req, res)=>{
+    const filmes = require("./database/filmes.json")
+    function retornaTitulos(i){
+        if (i.filmes == "titulo")
+        return i;
+    }
+    let titulos = filmes.filter(retornaTitulos);
+    retornaTitulos.forEach(titulos => {
+        console.log(titulos)
+    })
+    res.send(req.params.trecho)
+})
+
+
 servidor.listen(3000)
