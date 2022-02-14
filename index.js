@@ -1,6 +1,10 @@
 const express = require("express");
 
+const FilmesRouter = require("./routers/FilmesRouters");
+
 const servidor = express();
+
+servidor.use("/", FilmesRouter)
 
 servidor.get("/", (req, res) =>{
     console.log("Alguem fez uma requisiçao");
@@ -22,23 +26,6 @@ servidor.get("/filmes/:posicao", (req,res)=>{
     let posicao = req.params.posicao;
     const filmes = require("./database/filmes.json")
     res.send(filmes[posicao])
-})
-
-
-
-
-
-servidor.get("/busca/:trecho", (req, res)=>{
-    const filmes = require("./database/filmes.json")
-    function retornaTitulos(i){
-        if (i.filmes == "titulo")
-        return i;
-    }
-    let titulos = filmes.filter(retornaTitulos);
-    retornaTitulos.forEach(titulos => {
-        console.log(titulos)
-    })
-    res.send(req.params.trecho)
 })
 
 
