@@ -9,27 +9,19 @@
         @import url('https://fonts.googleapis.com/css2?family=Festive&family=Roboto&display=swap');
     </style>
 
-    <link rel="stylesheet" href="/css/filmes.css">
     <link rel="stylesheet" href="/css/style.css">
-    
+    <link rel="stylesheet" href="/css/filme.css">
     <title>Filnemateca</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="logo">Filnemateca</div>
-            <form>
-                <input type="search" name="busca" id="busca">
-            </form>
-        </div>
-    </header>
+    <%-include("parts/header.ejs")%>
     <main class="container">
-        <img src="/img/<%=filme.cartaz%>" alt="Encanto">
+        <img src="/img/<%= filme.cartaz%>" alt="<%=filme.titulo %>">
         <aside>
-            <span class="titulo"><%= filme.titulo %></span>
-            <span class="censura">Censura: <%= filme.censura==0 ? "Livre" : filme.censura %></span>
-            <span class="generos">Generos: <%= filme.generos %></span>
-            <span class="sinopse"><%= filme.sinopse %></span>
+            <span class="titulo"><%= filme.titulo%></span>
+            <span class="censura">Censura:<%= filme.censura%></span>
+            <span class="generos"><%= filme.generos%></span>
+            <span class="sinopse"><%= filme.sinopse%></span>
             
         </aside>
     </main>

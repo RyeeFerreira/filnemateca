@@ -18,7 +18,7 @@ const FilmesController = {
     },
 
     buscarPorTrecho: (req, res) => {
-        let trecho = req.params.trecho;
+        let trecho = req.query.busca;
 
         const filmes = require("../database/filmes.json");
 
@@ -27,7 +27,7 @@ const FilmesController = {
         }
         let resultadoDaBusca = filmes.filter(filtradora);
 
-        res.send(resultadoDaBusca);
+        res.render("index.ejs",{filmes: resultadoDaBusca});
     },
 
     buscarTitulo: (req, res) => {
@@ -35,7 +35,21 @@ const FilmesController = {
     },
 
     buscarPorId: (req, res) => {
+        
+        let id = req.params.id;
+        const filmes =  require("../database/filmes.json")
 
+        let filtradora = filme => {
+            if(filme.id == id){
+                return true;
+            } else {
+                return false;
+            
+            };
+        }
+
+        const filme = filmes.find(filtradora);
+        res.render("filme.ejs",{filme});
     },
 
     buscarPorGenero: (req, res) => {

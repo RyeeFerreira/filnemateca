@@ -18,8 +18,8 @@
 <body>
     <header>
         <div class="container">
-            <div id="logo">Filnemateca</div>
-            <form>
+            <div id="logo"><a href="/">Filnemateca</a></div>
+            <form action="/busca">
                 <input type="search" name="busca" id="busca">
             </form>
         </div>
@@ -28,7 +28,7 @@
         <% for(let i=0; i<filmes.length; i++){ let f=filmes[i] %>
             <article>
                 <img src="/img/<%=f.cartaz%>" alt="<%=f.titulo%>">
-                <a href="/filmes/<%=i %>">
+                <a href="/filmes/<%= f.id %>">
                     <span class="titulo">
                         <%=f.titulo %>
                     </span>
