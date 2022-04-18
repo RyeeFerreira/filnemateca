@@ -1,13 +1,17 @@
 // importar o express 
 const express = require('express');
 const AdmController = require('../controllers/AdmController');
+const FilmesController = require('../controllers/FilmesController');
+const verificaSeEstaLogado = require('../middlewares/verificaSeEstaLogado');
+const uploadDeCartaz = require("../middlewares/uploadDeCartaz")
 
-// criando o roteador
 const router = express.Router();
 
-// criar a rota
-router.get('/login',AdmController.mostraLogin);
-router.post('/login',(req, res)=>{res.send()});
+router.get("/login",AdmController.mostraLogin);
+router.post("/login", AdmController.login);
+router.get("/esqueci", AdmController.mostraEsqueci);
+router.post("/esqueci", AdmController.lembrarSenha);
+router.get("/admin", verificaSeEstaLogado, AdmController.showAdmin);
+router.post("/addFilme", uploadDeCartaz, FilmesController.addFilme)
 
-// exportar o roteador
 module.exports = router ;

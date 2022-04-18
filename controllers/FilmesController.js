@@ -56,6 +56,9 @@ const FilmesController = {
 
     },
 
+    addFilme: (req, res) => {
+        res.send(req.body)
+    }
 }
 
 
